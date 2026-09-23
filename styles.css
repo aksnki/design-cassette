@@ -90,3 +90,435 @@ h1,h2,h3,.brand,.header-cta,.btn,.nav,.section-label,.eyebrow,.hero-tags,
  .hero-art{min-height:330px}.cassette-card{width:88vw;padding:14px}.cassette-mark{font-size:56px;margin:21px 0 14px 9px}
  .reel{width:45px;height:45px;border-width:5px}.reel:before,.reel:after{inset:9px}.reel i{width:10px;height:10px}.tape-window{height:32px;font-size:7px}
 }
+
+/* --- Exact supplied logo branding --- */
+.brand{
+  width:240px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  overflow:visible;
+}
+.brand-mark{
+  width:54px !important;
+  height:45px !important;
+  object-fit:contain;
+  flex:0 0 auto;
+  filter:drop-shadow(0 5px 9px rgba(0,0,0,.10));
+}
+.brand-name{
+  width:166px !important;
+  height:auto !important;
+  object-fit:contain;
+  flex:0 0 auto;
+  filter:drop-shadow(0 4px 7px rgba(0,0,0,.06));
+  transition:transform .3s ease, filter .3s ease;
+}
+.brand:hover .brand-name{transform:translateX(2px);filter:drop-shadow(0 7px 10px rgba(0,0,0,.10))}
+.hero-brand-lockup{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(330px,62%);
+  height:auto;
+  z-index:5;
+  filter:drop-shadow(0 9px 16px rgba(0,0,0,.08));
+  animation:brandLockupFloat 5.5s ease-in-out infinite;
+}
+@keyframes brandLockupFloat{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(-5px)}
+}
+.hero-art .cassette-card{margin-top:42px}
+@media(max-width:1000px){
+  .brand{width:215px}
+  .brand-name{width:145px !important}
+  .hero-brand-lockup{width:min(300px,62%)}
+}
+@media(max-width:760px){
+  .brand{width:190px;height:54px;gap:7px}
+  .brand-mark{width:43px !important;height:39px !important}
+  .brand-name{width:135px !important}
+  .hero-brand-lockup{width:min(285px,78%);top:-3px}
+  .hero-art .cassette-card{margin-top:38px}
+}
+@media(max-width:420px){
+  .brand{width:160px;gap:5px}
+  .brand-mark{width:37px !important;height:34px !important}
+  .brand-name{width:115px !important}
+  .hero-brand-lockup{width:260px;max-width:82%;top:-3px}
+}
+
+/* =========================================
+   WEB DESIGN ESTIMATOR
+========================================= */
+
+.estimator {
+  background: #0e0e0e;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.estimator::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.estimator > * {
+  position: relative;
+  z-index: 1;
+}
+
+.estimator .section-label {
+  color: #ffb000;
+}
+
+.estimator .section-head p {
+  color: #a5a5a5;
+}
+
+
+/* MAIN CONTAINER */
+
+.estimator-wrap {
+  max-width: 1050px;
+  margin: 70px auto 0;
+  padding: 42px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 28px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.045),
+      rgba(255,255,255,.015)
+    );
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+}
+
+
+/* INTRO */
+
+.estimator-intro {
+  margin-bottom: 45px;
+}
+
+.estimator-badge {
+  display: inline-block;
+  padding: 8px 13px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,176,0,.35);
+  border-radius: 50px;
+  color: #ffb000;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.estimator-intro h3 {
+  margin: 0 0 12px;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(25px, 4vw, 38px);
+}
+
+.estimator-intro p {
+  max-width: 650px;
+  color: #999;
+  line-height: 1.7;
+}
+
+
+/* BLOCK */
+
+.estimate-block {
+  margin-top: 42px;
+}
+
+.estimate-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-family: "Sora", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.estimate-label span {
+  color: #ffb000;
+  font-size: 12px;
+}
+
+
+/* OPTIONS */
+
+.estimate-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.estimate-option {
+  width: 100%;
+  min-height: 92px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  background: rgba(255,255,255,.025);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    background .25s ease;
+}
+
+.estimate-option:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,176,0,.5);
+}
+
+.estimate-option.active {
+  border-color: #ffb000;
+  background: rgba(255,176,0,.07);
+  box-shadow: inset 0 0 0 1px rgba(255,176,0,.15);
+}
+
+.estimate-option strong {
+  display: block;
+  margin-bottom: 7px;
+  font-family: "Sora", sans-serif;
+  font-size: 15px;
+}
+
+.estimate-option small {
+  display: block;
+  color: #888;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.option-price {
+  color: #ffb000;
+  font-family: "Sora", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+/* PAGE OPTIONS */
+
+.compact-options {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.small-option {
+  display: block;
+  min-height: 100px;
+}
+
+.small-option strong {
+  margin-bottom: 8px;
+}
+
+
+/* FEATURES */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.feature-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.feature-option:hover {
+  border-color: rgba(255,176,0,.4);
+  background: rgba(255,255,255,.025);
+}
+
+.feature-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkmark {
+  width: 25px;
+  height: 25px;
+  flex: 0 0 25px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #555;
+  border-radius: 7px;
+  color: transparent;
+  transition: .25s ease;
+}
+
+.feature-option input:checked + .checkmark {
+  background: #ffb000;
+  border-color: #ffb000;
+  color: #111;
+}
+
+.feature-option strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: "Sora", sans-serif;
+  font-size: 13px;
+}
+
+.feature-option small {
+  color: #777;
+  font-size: 11px;
+}
+
+.feature-option b {
+  margin-left: auto;
+  color: #999;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+
+/* RESULT */
+
+.estimate-result {
+  margin-top: 45px;
+  padding: 28px;
+  border-radius: 20px;
+  background: #fff;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.result-copy > span {
+  display: block;
+  margin-bottom: 8px;
+  color: #777;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+.result-copy strong {
+  display: block;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+.result-copy small {
+  display: block;
+  margin-top: 6px;
+  color: #777;
+}
+
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.estimate-contact-link {
+  color: #111;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.estimate-note {
+  margin-top: 18px;
+  color: #666;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .estimator-wrap {
+    margin-top: 45px;
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .estimate-options,
+  .compact-options,
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .estimate-option {
+    min-height: 82px;
+  }
+
+  .estimate-result {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .result-actions {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .result-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .estimate-contact-link {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .estimator-wrap {
+    padding: 18px;
+  }
+
+  .estimate-option {
+    padding: 16px;
+  }
+
+  .option-price {
+    display: none;
+  }
+
+  .feature-option {
+    padding: 15px;
+  }
+
+  .estimate-result {
+    padding: 22px;
+  }
+}
