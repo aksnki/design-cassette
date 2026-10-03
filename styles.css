@@ -522,3 +522,80 @@ h1,h2,h3,.brand,.header-cta,.btn,.nav,.section-label,.eyebrow,.hero-tags,
     padding: 22px;
   }
 }
+
+/* ================================
+   FOOTER BRAND LOGO
+================================ */
+
+.footer-logo,
+.footer-logo-mark,
+.footer-logo-name {
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Tint monochrome white logo to brand gold */
+.footer-logo {
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(76%)
+    sepia(52%)
+    saturate(900%)
+    hue-rotate(355deg)
+    brightness(102%)
+    contrast(101%) !important;
+}
+
+/* =========================================================
+   MOBILE HERO — PREVENT BRAND / CASSETTE OVERLAPPING
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Keep hero content inside the normal layout */
+  .hero {
+    overflow: hidden;
+  }
+
+  /* Brand lockup stays above the animation */
+  .hero-brand-lockup {
+    position: relative !important;
+    z-index: 10 !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    margin: 28px auto 20px;
+
+    transform: none !important;
+  }
+
+  /* Prevent the logo from becoming too large */
+  .hero-brand-lockup img {
+    max-width: 78vw;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Cassette becomes a separate block underneath */
+  .cassette-visual {
+    position: relative !important;
+    z-index: 2 !important;
+
+    width: min(82vw, 360px);
+    height: auto;
+
+    margin: 25px auto 0;
+
+    transform: none !important;
+  }
+
+  /* Keep floating elements away from the logo */
+  .floating-note {
+    z-index: 1 !important;
+  }
+
+}

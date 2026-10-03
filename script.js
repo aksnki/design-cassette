@@ -34,19 +34,38 @@ form?.addEventListener('submit', (e) => {
   const service = document.getElementById('service').value;
   const message = document.getElementById('message').value.trim();
 
-  const text = [
-    'Hi Design Cassette! 👋',
-    '',
-    `Name: ${name}`,
-    business ? `Business / Brand: ${business}` : '',
-    `Service: ${service}`,
-    message ? `Project details: ${message}` : '',
-    '',
-    'I would like to discuss this project.'
-  ].filter(Boolean).join('\n');
+ const projectForm = document.getElementById("projectForm");
 
-  window.open(`https://wa.me/918943027041?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-});
+if (projectForm) {
+  projectForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value.trim();
+
+    const whatsappNumber = "918943027041";
+
+    const whatsappMessage = `Hello Design Cassette! 👋
+
+I would like to enquire about your services.
+
+👤 Name: ${name}
+📱 Phone: ${phone}
+🎨 Service: ${service}
+
+📝 Project Details:
+${message || "No additional details provided."}
+
+Looking forward to hearing from you. Thank you!`;
+
+    const whatsappURL =
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+}
 /* =========================================
    WEB DESIGN BUDGET ESTIMATOR
 ========================================= */
