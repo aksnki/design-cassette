@@ -50,7 +50,6 @@ img{display:block;max-width:100%}
 .contact{background:#f3f0e9}.contact-grid{display:grid;grid-template-columns:1fr .9fr;gap:10vw}.contact-copy p{max-width:480px;font-size:14px;line-height:1.8;color:var(--muted);margin-top:30px}.contact-details{display:grid;gap:18px;margin-top:45px}.contact-details a{font-size:14px;font-weight:800}.contact-details span{display:block;font-size:8px;letter-spacing:.17em;color:#999;margin-bottom:5px}
 .contact-form{background:#fff;padding:34px;box-shadow:var(--shadow);border-top:5px solid var(--gold)}.contact-form label{display:block;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px}.contact-form input,.contact-form select,.contact-form textarea{display:block;width:100%;margin-top:9px;border:0;border-bottom:1px solid #d7d3ca;padding:13px 0;background:transparent;font:500 13px 'Manrope',sans-serif;outline:none;border-radius:0}.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--gold)}.contact-form textarea{resize:vertical}.submit-btn{width:100%;margin-top:5px}.contact-form small{display:block;font-size:9px;color:#999;margin-top:12px;line-height:1.5}
 .footer{background:var(--black);color:#fff;padding:55px 7vw 25px}.footer-brand img{width:170px;filter:brightness(0) invert(1);opacity:.95}.footer-brand p{font-size:10px;color:#888;margin-top:12px}.footer-links{display:flex;gap:26px;justify-content:flex-end;margin-top:-28px;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.footer-links a:hover{color:var(--gold)}.footer-bottom{border-top:1px solid #2d2d2d;margin-top:45px;padding-top:20px;display:flex;justify-content:space-between;font-size:8px;letter-spacing:.15em;color:#777}.footer-bottom span:first-child{color:var(--gold)}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}.reveal.visible{opacity:1;transform:none}.delay-1{transition-delay:.12s}.delay-2{transition-delay:.22s}.delay-3{transition-delay:.32s}
 @media(max-width:1000px){.nav{gap:18px}.hero-grid{gap:4vw}.service-grid{grid-template-columns:repeat(2,1fr)}.service-wide{grid-column:span 2}.process-grid{grid-template-columns:repeat(2,1fr);gap:0}.process-step:nth-child(2){border-right:0}.process-step:nth-child(n+3){border-top:1px solid #343434}.pricing-grid{grid-template-columns:1fr}.price-card{max-width:620px}.contact-grid{gap:5vw}}
 @media(max-width:760px){
   .site-header{height:70px;padding:0 5vw}.brand{width:125px}.header-cta{display:none}.menu-toggle{display:block;z-index:52}.nav{position:fixed;inset:70px 0 0;background:rgba(255,253,248,.98);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;font-size:15px}.nav.open{transform:none}.hero{padding-top:125px;min-height:auto;padding-bottom:90px}.hero-grid{grid-template-columns:1fr}.hero h1{font-size:clamp(60px,17vw,105px)}.hero-lead{font-size:18px}.hero-art{min-height:440px;margin-top:15px}.cassette-card{width:82%}.orbit-one{width:340px;height:200px}.orbit-two{width:390px;height:250px}.floating-note{display:none}.scroll-cue{display:none}.section{padding:90px 6vw}.about-grid,.contact-grid{grid-template-columns:1fr;gap:45px}.about-grid{margin-top:40px}.stats{grid-template-columns:repeat(2,1fr);margin-top:55px}.stats div:nth-child(2){border-right:0}.stats div:nth-child(3){padding-left:0;border-top:1px solid var(--line)}.stats div:nth-child(4){border-top:1px solid var(--line)}.section-head{display:block;margin-bottom:42px}.section-head>p{margin-top:25px}.service-grid{grid-template-columns:1fr}.service-wide{grid-column:auto;display:block}.service-wide .service-image{height:240px}.service-wide h3{font-size:30px;margin-top:8px}.process-grid{grid-template-columns:1fr;margin-top:45px}.process-step,.process-step+.process-step{padding:24px 0;border-right:0!important}.process-step+.process-step{border-top:1px solid #343434}.process-step h3{margin-top:22px}.cta-band{grid-template-columns:1fr;gap:25px;padding:55px 6vw}.cta-cassette{width:60px;height:60px}.contact-form{padding:25px}.footer-links{justify-content:flex-start;flex-wrap:wrap;margin-top:30px}.footer-bottom{flex-direction:column;gap:13px}.hero-actions{align-items:flex-start;flex-direction:column;gap:18px}.hero-tags{margin-top:38px}
@@ -596,6 +595,53 @@ h1,h2,h3,.brand,.header-cta,.btn,.nav,.section-label,.eyebrow,.hero-tags,
   /* Keep floating elements away from the logo */
   .floating-note {
     z-index: 1 !important;
+  }
+
+}
+
+/* =========================================
+   REVEAL ANIMATIONS
+========================================= */
+
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity .75s ease,
+    transform .75s ease;
+}
+
+/* JS-enabled animation state */
+.js-enabled .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.js-enabled .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.delay-1 {
+  transition-delay: .12s;
+}
+
+.delay-2 {
+  transition-delay: .22s;
+}
+
+.delay-3 {
+  transition-delay: .32s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal,
+  .js-enabled .reveal,
+  .js-enabled .reveal.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
 }
